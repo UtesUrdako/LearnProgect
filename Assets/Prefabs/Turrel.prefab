@@ -648,6 +648,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8490146461962825845}
   - component: {fileID: 35535328}
+  - component: {fileID: 779290675699763571}
   - component: {fileID: 35535329}
   m_Layer: 0
   m_Name: Turrel
@@ -692,6 +693,21 @@ MonoBehaviour:
   _prefabBullet: {fileID: 7899712528409860141, guid: 577ab96696f982b4d8ee2e3961edcefc,
     type: 3}
   _shootPoint: {fileID: 4221480398671045233}
+--- !u!114 &779290675699763571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8490146461962825802}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12e7f3489db1ffb40822e501e674e75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  angle: 0
+  speed: 0
 --- !u!135 &35535329
 SphereCollider:
   m_ObjectHideFlags: 0
