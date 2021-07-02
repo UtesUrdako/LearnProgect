@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    [SerializeField] private Transform _player;
+
     [SerializeField] private GameObject _prefabBonus;
     [SerializeField] private GameObject _prefabEnemy;
     [SerializeField] private Transform[] _spawnPoint;
@@ -15,6 +17,7 @@ public class EnemySpawner : MonoBehaviour
     {
         int index = Random.Range(0, _spawnPoint.Length);
         _enemy = Instantiate(_prefabEnemy, _spawnPoint[index].position, _spawnPoint[index].rotation);
+        _enemy.GetComponent<Enemy>().Init(_player.gameObject, _spawnPoint);
 
         //enabled = false;
 
@@ -25,6 +28,6 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _enemy.transform.Translate(transform.forward * Time.deltaTime);
+        //_enemy.transform.Translate(transform.forward * Time.deltaTime);
     }
 }
