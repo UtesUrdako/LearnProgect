@@ -5,6 +5,9 @@ using UnityEngine;
 public class TestLog : MonoBehaviour
 {
     [SerializeField] private ParentDeleter parentDeleter;
+    public bool isLog = false;
+    private IEnumerator _coroutine1;
+    private IEnumerator _coroutine2;
 
     private void Awake()
     {
@@ -13,7 +16,16 @@ public class TestLog : MonoBehaviour
 
     void Start()
     {
-        
+        //InvokeRepeating("D", 0f, 3f);
+        //CancelInvoke("D");
+
+        _coroutine1 = D(3);
+        _coroutine2 = D(6);
+
+        StartCoroutine(_coroutine1);
+        StartCoroutine(_coroutine2);
+
+        StopCoroutine(_coroutine1);
     }
 
     void Update()
@@ -28,10 +40,21 @@ public class TestLog : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "1")
-        {
-            parentDeleter.DeleteChild();
-        }
+        
+    }
+
+    private IEnumerator D(float time)
+    {
+        yield return new WaitForSeconds(time);
+        //yield return new WaitUntil(ReturnBool);
+        yield return ReturnBool();
+        Debug.Log($"Coroutine time: {time}");
+    }
+
+    private IEnumerator ReturnBool()
+    {
+        //Вычисления
+        yield return true;
     }
 }
 

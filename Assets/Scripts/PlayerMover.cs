@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
+    [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _speedRotation = 5f;
 
@@ -16,21 +17,32 @@ public class PlayerMover : MonoBehaviour
     {
         _direction = Vector3.zero;
     }
-
     void Update()
+    {
+
+    }
+
+    public void CustomUpdate()
     {
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
 
         _angle = Input.GetAxis("Mouse X");
     }
-
-    private void FixedUpdate()
+    void FixedUpdate()
     {
-        var speed = _direction.normalized * _speed * Time.fixedDeltaTime;
-        transform.Translate(speed);
 
-        transform.Rotate(Vector3.up * _speedRotation * Input.GetAxis("Mouse X") * Time.fixedDeltaTime);
+    }
+
+
+    public void CustomFUpdate()
+    {
+        var speed = _direction.normalized * _speed * Time.deltaTime;
+        //transform.Translate(speed);
+        _rb.MovePosition(transform.position + speed);
+        //_rb.AddForce(speed, ForceMode.VelocityChange);
+
+        transform.Rotate(Vector3.up * _speedRotation * Input.GetAxis("Mouse X") * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

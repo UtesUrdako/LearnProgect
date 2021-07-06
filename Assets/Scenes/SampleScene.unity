@@ -1293,6 +1293,12 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 7041013319335233233, guid: 549c69af39b84624b8a053537c407def,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: a9a4dbb0af007a14baab480b32ac8444,
+        type: 2}
     - target: {fileID: 7041013319335233235, guid: 549c69af39b84624b8a053537c407def,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5135,14 +5141,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689763341}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: 1, z: 12}
+  m_LocalRotation: {x: -0, y: 0.6701653, z: -0, w: 0.7422119}
+  m_LocalPosition: {x: -3.18, y: 1, z: 12.03}
   m_LocalScale: {x: 6, y: 2, z: 0.2}
   m_Children:
   - {fileID: 287912681}
   m_Father: {fileID: 2031359218}
   m_RootOrder: 52
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 84.16, z: 0}
 --- !u!208 &1689763343
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -6337,6 +6343,9 @@ MonoBehaviour:
   _player: {fileID: 0}
   _prefabBullet: {fileID: 0}
   _shootPoint: {fileID: 0}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls: []
   angle: 0
   speed: 2
 --- !u!23 &2067047336
@@ -6519,6 +6528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e834e5a6cc233468755837e02c832e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rb: {fileID: 7767106478972492043}
   _speed: 5
   _speedRotation: 500
   count: 0
@@ -6530,13 +6540,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795852469}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!1001 &8490146461995714965
 PrefabInstance:
@@ -6718,6 +6728,45 @@ MonoBehaviour:
   _prefabBullet: {fileID: 7899712528409860141, guid: 577ab96696f982b4d8ee2e3961edcefc,
     type: 3}
   _shootPoint: {fileID: 1767305513}
+  onEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7476957893025463854}
+        m_TargetAssemblyTypeName: PlayerMover, Assembly-CSharp
+        m_MethodName: CustomUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 7476957893025463854}
+        m_TargetAssemblyTypeName: PlayerMover, Assembly-CSharp
+        m_MethodName: CustomFUpdate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 795852469}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TTTTTT
+          m_BoolArgument: 0
+        m_CallState: 2
   angle: 0
   speed: 2
 --- !u!135 &8490146461995714969
