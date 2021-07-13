@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private Animator _anim;
     [SerializeField] private float _speed = 5f;
     [SerializeField] private float _speedRotation = 5f;
 
@@ -19,23 +20,27 @@ public class PlayerMover : MonoBehaviour
     }
     void Update()
     {
-
-    }
-
-    public void CustomUpdate()
-    {
         _direction.x = Input.GetAxis("Horizontal");
         _direction.z = Input.GetAxis("Vertical");
 
+        if (Mathf.Approximately(_direction.magnitude, 0))
+        {
+            _anim.SetBool("IsWalk", false);
+        }
+        else
+        {
+            _anim.SetBool("IsWalk", true);
+        }
+
         _angle = Input.GetAxis("Mouse X");
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            _anim.SetTrigger("Attack");
+        }
     }
+
     void FixedUpdate()
-    {
-
-    }
-
-
-    public void CustomFUpdate()
     {
         var speed = _direction.normalized * _speed * Time.deltaTime;
         //transform.Translate(speed);
