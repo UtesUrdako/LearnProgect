@@ -45,7 +45,6 @@ public class PlayerMover : MonoBehaviour
         var speed = _direction.normalized * _speed * Time.deltaTime;
         //transform.Translate(speed);
         _rb.MovePosition(transform.position + speed);
-        //_rb.AddForce(speed, ForceMode.VelocityChange);
 
         transform.Rotate(Vector3.up * _speedRotation * Input.GetAxis("Mouse X") * Time.deltaTime);
     }
