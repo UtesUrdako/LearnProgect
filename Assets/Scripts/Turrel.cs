@@ -30,7 +30,6 @@ public class Turrel : MonoBehaviour
     Vector3 targetDir;
     Vector3 newDir;
 
-
     public void Update()
     {
         onEvent?.Invoke();

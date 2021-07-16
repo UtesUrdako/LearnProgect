@@ -17,7 +17,8 @@ public class EnemySpawner : MonoBehaviour
     {
         int index = Random.Range(0, _spawnPoint.Length);
         _enemy = Instantiate(_prefabEnemy, _spawnPoint[index].position, _spawnPoint[index].rotation);
-        _enemy.GetComponent<Enemy>().Init(_player.gameObject, _spawnPoint);
+        //_enemy.GetComponent<Enemy>().Init(_player.gameObject, _spawnPoint);
+        _enemy.GetComponent<TestLog>()._waypoint = _spawnPoint;
 
         //enabled = false;
 
